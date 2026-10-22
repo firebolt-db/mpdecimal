@@ -4875,7 +4875,8 @@ doit(const char *filename)
     while (fgets(line, MAXLINE+1, file) != NULL) {
 
         /* split a line into tokens */
-        strcpy(tmpline, line);
+        strncpy(tmpline, line, MAXLINE);
+        tmpline[MAXLINE] = '\0';
 
         for (int i =0; i < MAXTOKEN+1; i++) {
             token[i] = NULL;
